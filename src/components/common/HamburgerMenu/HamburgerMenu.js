@@ -4,8 +4,6 @@ import Image from "next/image";
 import { slide as SlideHamburgerMenu } from "react-burger-menu";
 import style from "./HamburgerMenu.module.css";
 import logoMonogramImage from "../../../images/logo-monogram.png?webp";
-import Logout from "../../../utils/Logout";
-import { env } from "../../../utils/EnvironmentVariables";
 import { useUserDataContext } from "../../../context/UserDataContext";
 
 function HamburgerMenu() {

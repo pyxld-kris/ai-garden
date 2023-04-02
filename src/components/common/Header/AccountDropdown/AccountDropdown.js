@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Logout from "../../../../utils/Logout";
-import { env } from "../../../../utils/EnvironmentVariables";
 import {
   AccountMenuDropdownItem,
   AccountMenuDropdownButton,
@@ -21,9 +19,6 @@ export default function AccountDropdown(props) {
                 <Link href="/user-profile" passHref>
                   <a>Visit Account Page</a>
                 </Link>
-              </AccountMenuDropdownItem>
-              <AccountMenuDropdownItem onClick={Logout}>
-                Logout{" "}
               </AccountMenuDropdownItem>
             </>
           }
