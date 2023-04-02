@@ -53,6 +53,7 @@ class ReactControlChild extends React.Component {
           //width:"15rem",
           //height:"2rem",
           //overflow:"scroll",
+          maxWidth: "18rem",
           backgroundColor: "#1e1e1e",
           padding:"0"
         }}>

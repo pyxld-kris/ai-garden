@@ -112,7 +112,7 @@ class ReactControlChild extends React.Component {
           </div>
         </ReactModal>
         <div style={{
-          width:"35rem",
+          width:"30rem",
           height:"30rem",
           overflow:"scroll",
           backgroundColor: "#1e1e1e"

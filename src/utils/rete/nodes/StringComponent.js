@@ -4,6 +4,7 @@ export default class StringComponent extends Rete.Component {
   constructor() {
     super("String");
     this.data.path = "String";
+    this.icon = "🧵";
     this.task = {
       outputs: {
         out0: "outputOption",
@@ -12,6 +13,7 @@ export default class StringComponent extends Rete.Component {
   }
 
   builder(node) {
+    console.log(this);
     var inp0 = new Rete.Input(
       "in0",
       "StringIn",

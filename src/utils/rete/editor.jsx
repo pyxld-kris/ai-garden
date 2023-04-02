@@ -65,8 +65,10 @@ import GeolocationComponent from "./nodes/GeolocationComponent";
 import GreaterThanComponent from "./nodes/GreaterThanComponent";
 import IfComponent from "./nodes/IfComponent";
 import LessThanComponent from "./nodes/LessThanComponent";
+import OnEventComponent from "./nodes/OnEventComponent";
 import OnIntervalComponent from "./nodes/OnIntervalComponent";
 import SpeechToTextComponent from "./nodes/SpeechToTextComponent";
+import StringToHTMLComponent from "./nodes/StringToHTMLComponent";
 import {
   anyTypeSocket, arraySocket, booleanSocket, numSocket, stringSocket
 } from "./sockets.js";
@@ -109,7 +111,14 @@ export async function saveCurrentModule() {
   let moduleName = prompt("Module Name");
   if (!moduleName) return;
 
-  graphModules[moduleName] = { data: activeEditor.toJSON(), key: moduleName, label: moduleName }
+  let path = '/';
+  let nameParts = moduleName.split('/');
+  if (nameParts.length > 1) {
+    path = '/'+nameParts.slice(0, nameParts.length-1).join("/");
+    moduleName = nameParts[nameParts.length-1];
+  }
+
+  graphModules[moduleName] = { path: path, data: activeEditor.toJSON(), key: moduleName, label: moduleName }
 }
 
 export async function loadSavedModule() {
@@ -190,6 +199,7 @@ export default async (container) => {
     new DisplayModalComponent(),
     new DebugLogComponent(),
     new ImageComponent(),
+    new StringToHTMLComponent(),
     new SequenceBranchComponent(),
     new InputPromptComponent(),
     new ModuleComponent(),
@@ -205,6 +215,7 @@ export default async (container) => {
     new CodeComponent(),
 
     new OnInitializeComponent(),
+    new OnEventComponent(),
     new OnIntervalComponent()
   ];
 

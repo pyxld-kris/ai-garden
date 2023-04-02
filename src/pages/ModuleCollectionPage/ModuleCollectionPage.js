@@ -54,19 +54,21 @@ export default function ModuleCollectionPage() {
     <div
       style={{
         display: "flex",
+	paddingBottom: "5rem"
       }}
     >
       <div className="left-panel" style={{ width: "25%" }}>
         <div
           style={{
-            backgroundColor: "gray",
             width: "80%",
-            paddingBottom: "80%",
             margin: "2rem",
             marginleft: "auto",
             marginRight: "auto",
           }}
-        ></div>
+        >
+	  {username}'s Modules
+          <img src="https://avatars.githubusercontent.com/u/46331884?v=4" style={{width:"100%"}} />
+	</div>
       </div>
       <div className="right-panel" style={{ width: "75%" }}>
         <div
@@ -94,6 +96,18 @@ export default function ModuleCollectionPage() {
             marginRight: "auto",
           }}
         >
+          {pathDisplay != "/" ? (
+            <div style={{ width: "50%", padding: ".4rem" }}>
+              📁
+              <a
+                href={(window.location + "").split("/").slice(0, -1).join("/")}
+              >
+                ...
+              </a>
+            </div>
+          ) : (
+            ""
+          )}
           {subPaths.map((subPath) => {
             return (
               <div style={{ width: "50%", padding: ".4rem" }}>

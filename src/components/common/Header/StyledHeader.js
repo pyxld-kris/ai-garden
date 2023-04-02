@@ -67,7 +67,7 @@ export const LogoWords = styled.div`
 export const HeaderNav = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   font-size: 1rem;
   width: 40%;
   min-width: 300px;

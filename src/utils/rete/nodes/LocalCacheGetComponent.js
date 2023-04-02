@@ -34,11 +34,11 @@ export default class LocalCacheGetComponent extends Rete.Component {
       json = JSON.parse(value);
     } catch (e) {}
     if (json) {
-      console.log("Parsed JSON");
+      //console.log("Parsed JSON");
       value = json;
     }
 
-    console.log(value);
+    //console.log(value);
 
     return { out0: value };
   }

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Wrapper } from "./StyledModuleNavigator";
 
 import {
+  canBeRun,
   hasInput,
   hasOutput,
 } from "../../../utils/rete/utils/moduleClassifier";
@@ -23,18 +24,15 @@ export default function ModuleNavigator(props) {
             style={{
               width: "50%",
               float: "right",
-              fontSize: "1rem",
+              fontSize: "3rem",
               color: "white",
               display: "flex",
               justifyContent: "space-around",
             }}
           >
-            <span>
-              Has Input: {hasInput(props.moduleData.data) ? "✅" : "❌"}
-            </span>
-            <span>
-              Has Output: {hasOutput(props.moduleData.data) ? "✅" : "❌"}
-            </span>
+            {canBeRun(props.moduleData.data) ? "▶️" : ""}
+            {hasInput(props.moduleData.data) ? "📥" : ""}
+            {hasOutput(props.moduleData.data) ? "📤" : ""}
           </div>
         </div>
       </Link>

@@ -38,7 +38,7 @@ class ReactControlChild extends React.Component {
       return (
         <select 
           style={{
-            width:"28rem",
+            width:"15rem",
             fontSize:"2.5rem",
             color:"#00ff00",
             backgroundColor:"black"

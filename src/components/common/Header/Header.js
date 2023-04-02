@@ -31,14 +31,9 @@ export default function Header() {
         </LogoWrapper>
       </Logo>
       <HeaderNav>
-        <Link to="/" replace>
+        <Link to="/modules" replace>
           <a>
-            <NavEntry>HOME</NavEntry>
-          </a>
-        </Link>
-        <Link to="/documentation" replace>
-          <a>
-            <NavEntry>DOCS</NavEntry>
+            <NavEntry>MY MODULES</NavEntry>
           </a>
         </Link>
       </HeaderNav>

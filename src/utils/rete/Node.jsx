@@ -6,10 +6,11 @@ export class MyNode extends Node {
     const { node, bindSocket, bindControl } = this.props;
     const { outputs, controls, inputs, selected } = this.state;
     const nodeType = this.props.node.name.replace(/\s/g, '');;
-    //console.log("NODE", this);
+    console.log("NODE", this);
 
     return (
       <div className={`node ${nodeType} ${selected}`}>
+        {node.icon ? node.icon : ""}
         <div className="title">{node.name}</div>
         {/* Outputs */}
         {outputs.map(output => (

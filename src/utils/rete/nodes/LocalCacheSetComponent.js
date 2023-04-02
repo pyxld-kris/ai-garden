@@ -47,7 +47,7 @@ export default class LocalCacheSetComponent extends Rete.Component {
       value = jsonString;
     }
 
-    console.log(value);
+    //console.log(value);
 
     if (key) {
       //alert("SETTING " + key + " to " + value);

@@ -40,19 +40,19 @@ export default class ArrayAppendComponent extends Rete.Component {
     var array = inputs["in0"]?.length ? inputs["in0"][0] : node.data.in0;
     var value = inputs["in1"]?.length ? inputs["in1"][0] : node.data.in1;
 
-    console.log("array", array);
+    //console.log("array", array);
 
     let json;
     try {
       json = JSON.parse(array);
     } catch (e) {}
     if (json) {
-      console.log("PARSED ARRAY");
+      //console.log("PARSED ARRAY");
       array = json;
     }
 
     if (!Array.isArray(array)) {
-      console.log("SHOVING INTO ARRAY");
+      //console.log("SHOVING INTO ARRAY");
       array = [array];
     }
     array.push(value);

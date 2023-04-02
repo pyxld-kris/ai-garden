@@ -47,7 +47,9 @@ export default function ModulePage() {
               }}
             >
               <div style={{ width: "33%" }}>
-                <h1 style={{ marginTop: "2rem" }}>{moduleName}</h1>
+                <h1 style={{ marginTop: "2rem" }}>
+                  {(moduleData.path ? moduleData.path : "") + "/" + moduleName}
+                </h1>
                 <div>{moduleData.label}</div>
               </div>
               <div style={{ width: "65%" }}>

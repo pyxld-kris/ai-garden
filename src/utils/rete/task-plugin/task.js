@@ -143,7 +143,13 @@ export class Task {
   clearNodeData(caller = null) {
     //alert("clearing " + this.component.name);
     //console.log("CLR: clearing", this, caller);
+    if (this.component.name == "SpeechToText") {
+      console.log("CLEARING SPEECH TO TEXT", this);
+    }
     if (this.workerRan) {
+      if (this.component.name == "SpeechToText") {
+        console.log("ACTUALLY CLEARING");
+      }
       //console.log("CLR: clearing worker ran!!!");
       this.inputData = {};
       this.outputData = null;
@@ -181,6 +187,7 @@ export class Task {
     checkForwardConnection = false,
     forwardNode = null
   ) {
+    if (this.component.name == "OnEvent") console.log("OnEvent run", this);
     //console.log("Running node...", this);
 
     if (needReset) garbage.push(this);
@@ -201,6 +208,13 @@ export class Task {
           ...this.outputData,
           ...(await this.worker(this, this.inputData, data)),
         };
+
+        if (!this.workerRan) {
+          // worker is run asynchronously, and may be delayed
+          // If this worker took too long to run, we need to clean up the output data and prepare to run again
+          this.outputData = null;
+          return;
+        }
 
         // Force any undefined outputs to be null instead (undefined is inactive, null triggers but has no data)
         // if (this.outputData) {
@@ -269,7 +283,7 @@ export class Task {
               let outputKey = outputKeys[outputKeyIndex];
               if (this.closed.indexOf(outputKey) == -1) {
                 // This output key is still open. Check if we should run the node.
-                console.log(this.inputs, optionalInputKey);
+                //console.log(this.inputs, optionalInputKey);
                 let input = this.inputs[optionalInputKey]
                   ? this.inputs[optionalInputKey][0]
                   : 0;
