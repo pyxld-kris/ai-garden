@@ -24,7 +24,7 @@ export default function Header() {
         <LogoWrapper>
           <Link to="/" replace>
             <a>
-              <LogoImageHolder>🧠</LogoImageHolder>
+              <LogoImageHolder>🌱</LogoImageHolder>
               <LogoWords>AI Garden</LogoWords>
             </a>
           </Link>
