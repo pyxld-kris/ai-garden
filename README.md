@@ -4,6 +4,7 @@ NOTE: This is a proof of concept! The usefulness or user friendliness of this in
 
 ## Introduction
 
+![image](https://user-images.githubusercontent.com/46331884/229419292-1afd5954-436e-43c1-ba26-a78862b55912.png)
 
 
 ## Concept
