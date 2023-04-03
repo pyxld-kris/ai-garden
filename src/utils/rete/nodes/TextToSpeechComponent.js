@@ -34,44 +34,6 @@ export default class TextToSpeechComponent extends Rete.Component {
 
     // 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
 
-    // let result = await axios.post(
-    //   "http://localhost:5001",
-    //   {
-    //     prompt: prompt,
-    //   },
-    //   {
-    //     headers: {
-    //       "Target-URL": "https://bf.dallemini.ai/generate",
-    //       "Connection-Override": "keep-alive",
-    //       "Origin-Override": "https://hf.space",
-    //       "Referer-Override": "https://hf.space",
-    //     },
-    //   }
-    // );
-
-    /*
-    let result = await axios.post(
-      "http://localhost:5001",
-      {
-        data: [text.substring(0, 100), "en/ljspeech/tacotron2-DDC_ph"],
-        cleared: false,
-        example_id: null,
-        session_hash:
-          "q" +
-          parseInt(Math.random() * 10) +
-          "rq8ar5tk" +
-          parseInt(Math.random() * 10),
-      },
-      {
-        headers: {
-          "Target-URL": "https://hf.space/embed/coqui/CoquiTTS/api/predict/",
-          "Connection-Override": "keep-alive",
-          "Origin-Override": "https://hf.space",
-          "Referer-Override": "https://hf.space",
-        },
-      }
-    );
-    */
 
     await new Promise(function (resolve, reject) {
       let voices = window.speechSynthesis.getVoices();
