@@ -1,5 +1,25 @@
 # AI Garden
 
+NOTE: This is a proof of concept! The usefulness or user friendliness of this interface and feature set has not been tested in any meaningful way.
+
+## Introduction
+
+
+
+## Concept
+
+
+
+## License
+
+
+
+MIT. Do whatever you want.
+
+
+
+
+
 # Strand? Fiber? Thread?
 
 Creating and Connecting Neural Modules
