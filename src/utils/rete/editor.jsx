@@ -119,6 +119,8 @@ export async function saveCurrentModule() {
   }
 
   graphModules[moduleName] = { path: path, data: activeEditor.toJSON(), key: moduleName, label: moduleName }
+
+  alert("Saved!");
 }
 
 export async function loadSavedModule() {
@@ -129,6 +131,7 @@ export async function loadSavedModule() {
 }
 
 export async function exportModules() {
+  alert("Check the console!");
   console.log(JSON.stringify(graphModules));
 }
 
