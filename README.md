@@ -22,7 +22,7 @@ During development, I've sprinkled in a path toward adding user sign ups, authen
 
 ## A Big Thanks
 
-This project leverages a heavily modified version of the rete.js package, which makes all of the node "stuff" work. I found the package to have most if what was needed, though there was some heavy reworking of the internals to allow for tasks and signals to flow in a way that was necessary for a tool like this.
+This project leverages a heavily modified version of the rete.js package, which makes all of the node "stuff" work. I found the package to have most if what was needed, though there was some significant reworking of the internals to allow for tasks and signals to flow in a way that was necessary for a tool like this.
 
 ## License
 
