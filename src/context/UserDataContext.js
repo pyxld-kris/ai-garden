@@ -7,19 +7,6 @@ const DEFAULT_USER = {
   name: "",
   username: "",
   email: "",
-  bio: "",
-  profilePictureUrl: "",
-  socialMediaLinks: [],
-  totalPoints: 0,
-  totalSeasonPoints: 0,
-  availablePoints: 0,
-  volunteerHours: 0,
-  discord: {
-    id: 0,
-    avatar: "",
-    username: "",
-    discriminator: "",
-  },
 };
 
 // Built from this article: https://www.sitepoint.com/replace-redux-react-hooks-context-api/
@@ -30,7 +17,7 @@ function useUserData() {
 
   React.useEffect(() => {
     // Setting timeout because of environment variable hack
-    axios(`${env().STRAPI_URL}/users/me`, {
+    axios(`${process.env.API_URL}/users/me`, {
       withCredentials: true,
     })
       .then(({ data: currentUser }) => {
@@ -39,13 +26,6 @@ function useUserData() {
           name: currentUser.profile.displayName,
           username: currentUser.username,
           email: currentUser.email,
-          bio: currentUser.profile.bio,
-          profilePictureUrl: currentUser.profile.profilePictureUrl,
-          socialMediaLinks: currentUser.profile.socialMediaLinks,
-          totalPoints: currentUser.point.totalPoints,
-          totalSeasonPoints: currentUser.point.totalSeasonPoints,
-          availablePoints: currentUser.point.availablePoints,
-          volunteerHours: currentUser.point.volunteerHours,
         });
       })
       .catch(() => {
