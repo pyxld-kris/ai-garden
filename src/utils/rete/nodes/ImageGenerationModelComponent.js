@@ -78,7 +78,7 @@ export default class ImageGenerationModelComponent extends Rete.Component {
 
 
     let result = await axios.post(
-      "http://krisgano.com/ai-project-proxy",
+      "https://krisgano.com/ai-project-proxy",
       {
         fn_index: 1,
         data: [prompt, 1, false, false, temperature, superCondition, topK],

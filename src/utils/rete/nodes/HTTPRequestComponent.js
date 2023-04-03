@@ -55,7 +55,7 @@ export default class HTTPRequestComponent extends Rete.Component {
       if (method == "POST") {
         //console.log(data);
         if (typeof data === "string") data = JSON.parse(data);
-        result = await axios.post("http://krisgano.com/ai-project-proxy", data, {
+        result = await axios.post("https://krisgano.com/ai-project-proxy", data, {
           headers: {
             "Target-URL": url,
             "Connection-Override": "keep-alive",
@@ -65,7 +65,7 @@ export default class HTTPRequestComponent extends Rete.Component {
         });
       } else {
         result = await axios.get(
-          "http://krisgano.com/ai-project-proxy" + "?rand=" + Math.random(),
+          "https://krisgano.com/ai-project-proxy" + "?rand=" + Math.random(),
           {
             params: {},
             headers: {
