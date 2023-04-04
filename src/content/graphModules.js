@@ -49,6 +49,7 @@ const graphModules = {
     label: "new-graph",
   },
   "new-prompt": {
+    path: "/",
     data: {
       id: "demo@0.1.0",
       nodes: {
@@ -57,55 +58,107 @@ const graphModules = {
           data: {},
           inputs: {},
           outputs: {
-            action: { connections: [{ node: 5, input: "in0", data: {} }] },
+            action: {
+              connections: [
+                { node: 7, input: "triggerSignal", data: {} },
+                { node: 8, input: "in0", data: {} },
+              ],
+            },
           },
-          position: [77.5464221227401, -14.394098133520489],
+          position: [-340.5528672057456, 90.60796259634681],
           name: "OnInitialize",
         },
         3: {
           id: 3,
           data: {},
           inputs: {
-            in0: { connections: [{ node: 5, output: "out0", data: {} }] },
+            in0: { connections: [{ node: 6, output: "out0", data: {} }] },
           },
           outputs: {},
-          position: [644.6284367784084, 88.58768866074735],
+          position: [1144.8199064593148, 94.31515142935925],
           name: "DisplayModal",
         },
-        4: {
-          id: 4,
+        6: {
+          id: 6,
           data: {
-            module: "module-get-bloom-model-data",
-            prompt:
-              "Hello world! I'm a prompt that gets fed into a Large Language Model! Change me!",
-            numTokens: "32",
-            topP: "1",
-            terminator: "terminator",
+            in0: "Prompt",
+            in1: "TopP",
+            in2: "Temperature",
+            in3: "Response Length",
+            in4: "Terminator",
           },
           inputs: {
-            prompt: { connections: [] },
-            numTokens: { connections: [] },
-            topP: { connections: [] },
-            terminator: { connections: [] },
-          },
-          outputs: {
-            text: { connections: [{ node: 5, input: "in1", data: {} }] },
-          },
-          position: [-440.41713919502916, 124.63129949110194],
-          name: "Module",
-        },
-        5: {
-          id: 5,
-          data: {},
-          inputs: {
-            in0: { connections: [{ node: 1, output: "action", data: {} }] },
-            in1: { connections: [{ node: 4, output: "text", data: {} }] },
+            in0: { connections: [{ node: 8, output: "out0", data: {} }] },
+            in1: { connections: [{ node: 9, output: "out0", data: {} }] },
+            in2: { connections: [{ node: 10, output: "out0", data: {} }] },
+            in3: { connections: [{ node: 11, output: "out0", data: {} }] },
+            in4: { connections: [] },
           },
           outputs: {
             out0: { connections: [{ node: 3, input: "in0", data: {} }] },
           },
-          position: [399.9122429010759, 89.688147858063],
-          name: "Or",
+          position: [870.1884750149088, 95.01867974679351],
+          name: "GPTQuery",
+        },
+        7: {
+          id: 7,
+          data: {
+            module: "module-display-executing-modal",
+            triggerSignal: "triggerSignal",
+          },
+          inputs: {
+            triggerSignal: {
+              connections: [{ node: 1, output: "action", data: {} }],
+            },
+          },
+          outputs: { null: { connections: [] } },
+          position: [-9.449677286828432, -147.21566412703316],
+          name: "Module",
+        },
+        8: {
+          id: 8,
+          data: {
+            string:
+              "Hello, this is a prompt that will be fed into a Large Language Model. When you press execute, you'll see some magic happen. This sentence will be magically completed with something amazing, like ",
+          },
+          inputs: {
+            in0: { connections: [{ node: 1, output: "action", data: {} }] },
+          },
+          outputs: {
+            out0: { connections: [{ node: 6, input: "in0", data: {} }] },
+          },
+          position: [-14.170538202971102, 133.66102079896166],
+          name: "BigString",
+        },
+        9: {
+          id: 9,
+          data: { num: ".9" },
+          inputs: { in0: { connections: [] } },
+          outputs: {
+            out0: { connections: [{ node: 6, input: "in1", data: {} }] },
+          },
+          position: [538.3176840110519, 234.83558043923003],
+          name: "Number",
+        },
+        10: {
+          id: 10,
+          data: { num: ".9" },
+          inputs: { in0: { connections: [] } },
+          outputs: {
+            out0: { connections: [{ node: 6, input: "in2", data: {} }] },
+          },
+          position: [538.7720421265185, 452.9304569981092],
+          name: "Number",
+        },
+        11: {
+          id: 11,
+          data: { num: "100" },
+          inputs: { in0: { connections: [] } },
+          outputs: {
+            out0: { connections: [{ node: 6, input: "in3", data: {} }] },
+          },
+          position: [539.2262545870492, 669.1163799660048],
+          name: "Number",
         },
       },
       comments: [],
@@ -358,10 +411,6 @@ const graphModules = {
   },
   "module-display-executing-modal": {
     path: "/utils",
-    id: 20,
-    key: "module-display-executing-modal",
-    label:
-      "Triggers a modal displaying the message 'Executing...' (for use in user facing graphs when execution has begun)",
     data: {
       id: "demo@0.1.0",
       nodes: {
@@ -369,7 +418,7 @@ const graphModules = {
           id: 2,
           data: { string: "Executing..." },
           inputs: {
-            in0: { connections: [{ node: 4, output: "output", data: {} }] },
+            in0: { connections: [{ node: 7, output: "out0", data: {} }] },
           },
           outputs: {
             out0: {
@@ -387,9 +436,9 @@ const graphModules = {
           data: { name: "triggerSignal" },
           inputs: {},
           outputs: {
-            output: { connections: [{ node: 2, input: "in0", data: {} }] },
+            output: { connections: [{ node: 7, input: "in0", data: {} }] },
           },
-          position: [-1314.0456205900557, -376.17456837376096],
+          position: [-1624.8192241167799, -356.98094442693895],
           name: "Input",
         },
         5: {
@@ -412,8 +461,34 @@ const graphModules = {
           position: [-243.30290858579443, -368.3016428520514],
           name: "DisplayModal",
         },
+        7: {
+          id: 7,
+          data: {},
+          inputs: {
+            in0: { connections: [{ node: 4, output: "output", data: {} }] },
+            in1: { connections: [{ node: 8, output: "out0", data: {} }] },
+          },
+          outputs: {
+            out0: { connections: [{ node: 2, input: "in0", data: {} }] },
+          },
+          position: [-1266.659565475022, -363.5874235716087],
+          name: "Await",
+        },
+        8: {
+          id: 8,
+          data: { string: "" },
+          inputs: { in0: { connections: [] } },
+          outputs: {
+            out0: { connections: [{ node: 7, input: "in1", data: {} }] },
+          },
+          position: [-1541.6159350425337, -150.25603733804266],
+          name: "String",
+        },
       },
+      comments: [],
     },
+    key: "module-display-executing-modal",
+    label: "module-display-executing-modal",
   },
   "module-strip-wikipedia-citations": {
     path: "/junk-utils",
