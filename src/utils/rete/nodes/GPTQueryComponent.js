@@ -49,7 +49,7 @@ export default class GPTQueryComponent extends Rete.Component {
       .addInput(inp2)
       .addInput(inp3)
       .addInput(inp4)
-      .addControl(new MyControl(this.editor, "preview", ""))
+      //.addControl(new MyControl(this.editor, "preview", ""))
       .addOutput(out);
   }
 
@@ -66,10 +66,10 @@ export default class GPTQueryComponent extends Rete.Component {
     );
     var terminator = inputs["in4"]?.length ? inputs["in4"][0] : node.data.in4;
 
-    this.editor.nodes
-      .find((n) => n.id == node.id)
-      ?.controls?.get("preview")
-      ?.setValue("Executing...");
+    // this.editor.nodes
+    //   .find((n) => n.id == node.id)
+    //   ?.controls?.get("preview")
+    //   ?.setValue("Executing...");
 
     let result = await GPTUtil.queryPrompt({
       text: prompt,
@@ -84,10 +84,10 @@ export default class GPTQueryComponent extends Rete.Component {
       result = result.split(terminator)[0];
     }
 
-    this.editor.nodes
-      .find((n) => n.id == node.id)
-      ?.controls?.get("preview")
-      ?.setValue(result);
+    // this.editor.nodes
+    //   .find((n) => n.id == node.id)
+    //   ?.controls?.get("preview")
+    //   ?.setValue(result);
     outputs["out0"] = result;
 
     return { out0: result };
