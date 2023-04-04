@@ -530,9 +530,9 @@ const graphModules = {
           data: { name: "inputSignal" },
           inputs: {},
           outputs: {
-            output: { connections: [{ node: 14, input: "in0", data: {} }] },
+            output: { connections: [{ node: 43, input: "in0", data: {} }] },
           },
-          position: [-2182.5955073825153, 145.0204816075559],
+          position: [-2505.0824116489193, 218.1616073026072],
           name: "Input",
         },
         3: {
@@ -602,7 +602,7 @@ const graphModules = {
           id: 14,
           data: { string: "," },
           inputs: {
-            in0: { connections: [{ node: 1, output: "output", data: {} }] },
+            in0: { connections: [{ node: 43, output: "out0", data: {} }] },
           },
           outputs: {
             out0: {
@@ -923,6 +923,29 @@ const graphModules = {
           position: [-2190.0068298328983, -1760.1236476731299],
           name: "Await",
         },
+        43: {
+          id: 43,
+          data: {},
+          inputs: {
+            in0: { connections: [{ node: 1, output: "output", data: {} }] },
+            in1: { connections: [{ node: 44, output: "out0", data: {} }] },
+          },
+          outputs: {
+            out0: { connections: [{ node: 14, input: "in0", data: {} }] },
+          },
+          position: [-2152.3630794999835, 218.49440758323314],
+          name: "Await",
+        },
+        44: {
+          id: 44,
+          data: { string: "" },
+          inputs: { in0: { connections: [] } },
+          outputs: {
+            out0: { connections: [{ node: 43, input: "in1", data: {} }] },
+          },
+          position: [-2448.2767474144302, 415.5244340166579],
+          name: "String",
+        },
       },
       comments: [
         {
@@ -1018,7 +1041,7 @@ const graphModules = {
           data: { name: "triggerSignal" },
           inputs: {},
           outputs: {
-            output: { connections: [{ node: 6, input: "in0", data: {} }] },
+            output: { connections: [{ node: 13, input: "in0", data: {} }] },
           },
           position: [-1527.443124379288, -277.1652402667681],
           name: "Input",
@@ -1032,14 +1055,6 @@ const graphModules = {
           outputs: {},
           position: [290.8771909498972, -277.1236458842179],
           name: "Output",
-        },
-        3: {
-          id: 3,
-          data: { preview: 0, in0: "", in1: "" },
-          inputs: { in0: { connections: [] }, in1: { connections: [] } },
-          outputs: { out0: { connections: [] } },
-          position: [-824.6168251457362, -6.2457987447112515],
-          name: "Append",
         },
         5: {
           id: 5,
@@ -1059,12 +1074,12 @@ const graphModules = {
           id: 6,
           data: { string: "https://www.boredapi.com/api/activity" },
           inputs: {
-            in0: { connections: [{ node: 1, output: "output", data: {} }] },
+            in0: { connections: [{ node: 13, output: "out0", data: {} }] },
           },
           outputs: {
             out0: { connections: [{ node: 5, input: "in0", data: {} }] },
           },
-          position: [-1160.5217398655536, -272.0229121303873],
+          position: [-852.4505843565641, -272.0229121303873],
           name: "String",
         },
         7: {
@@ -1080,22 +1095,28 @@ const graphModules = {
           position: [-105.83065328795564, -275.94897270717485],
           name: "GetJSONValueComponent",
         },
-        12: {
-          id: 12,
-          data: {
-            module: "join-strings",
-            in0: "in0",
-            in1: "in1",
-            joinString: "joinString",
-          },
+        13: {
+          id: 13,
+          data: {},
           inputs: {
-            in0: { connections: [] },
-            in1: { connections: [] },
-            joinString: { connections: [] },
+            in0: { connections: [{ node: 1, output: "output", data: {} }] },
+            in1: { connections: [{ node: 14, output: "out0", data: {} }] },
           },
-          outputs: { out0: { connections: [] } },
-          position: [-434.0962953966832, 12.268100225321348],
-          name: "Module",
+          outputs: {
+            out0: { connections: [{ node: 6, input: "in0", data: {} }] },
+          },
+          position: [-1142.0605800450019, -275.1403936148569],
+          name: "Await",
+        },
+        14: {
+          id: 14,
+          data: { string: "" },
+          inputs: { in0: { connections: [] } },
+          outputs: {
+            out0: { connections: [{ node: 13, input: "in1", data: {} }] },
+          },
+          position: [-1435.5505026737271, -88.85036603903676],
+          name: "String",
         },
       },
       comments: [],
