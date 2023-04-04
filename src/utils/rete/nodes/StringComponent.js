@@ -35,11 +35,13 @@ export default class StringComponent extends Rete.Component {
     var inputString = inputs["in0"]?.length
       ? inputs["in0"][0]
       : node.data["in0"];
-    if (inputString)
-      this.editor.nodes
-        .find((n) => n.id == node.id)
-        .controls.get("string")
-        .setValue(inputString);
+    if (inputString) {
+      let thisNode = this.editor?.nodes
+        .find((n) => n.id == node.id);
+      if (thisNode)
+        thisNode.controls?.get("string")
+          .setValue(inputString);
+    }
     else inputString = node.data.string;
 
     return { out0: inputString };
