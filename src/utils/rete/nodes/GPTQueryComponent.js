@@ -71,7 +71,7 @@ export default class GPTQueryComponent extends Rete.Component {
     //   ?.controls?.get("preview")
     //   ?.setValue("Executing...");
 
-    let result = await GPTUtil.queryPrompt({
+    let result = await GPTUtil.bloomQuery({
       text: prompt,
       topP: topP,
       temperature: temperature,

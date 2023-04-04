@@ -76,23 +76,9 @@ export default class ImageGenerationModelComponent extends Rete.Component {
 
     // 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
 
-    // let result = await axios.post(
-    //   "http://localhost:5001",
-    //   {
-    //     prompt: prompt,
-    //   },
-    //   {
-    //     headers: {
-    //       "Target-URL": "https://bf.dallemini.ai/generate",
-    //       "Connection-Override": "keep-alive",
-    //       "Origin-Override": "https://hf.space",
-    //       "Referer-Override": "https://hf.space",
-    //     },
-    //   }
-    // );
 
     let result = await axios.post(
-      "http://localhost:5001",
+      "https://krisgano.com/ai-project-proxy",
       {
         fn_index: 1,
         data: [prompt, 1, false, false, temperature, superCondition, topK],

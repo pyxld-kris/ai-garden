@@ -1,8 +1,8 @@
 import Rete from "rete";
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList;
+var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+var SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
 var SpeechRecognitionEvent =
-  SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+  window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
 
 let recognition;
 
