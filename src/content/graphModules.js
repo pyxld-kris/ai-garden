@@ -1010,9 +1010,6 @@ const graphModules = {
   },
   "module-get-random-activity": {
     path: "/utils",
-    id: 26,
-    key: "module-get-random-activity",
-    label: "Outputs a random activity from http://boredapi.com",
     data: {
       id: "demo@0.1.0",
       nodes: {
@@ -1046,7 +1043,7 @@ const graphModules = {
         },
         5: {
           id: 5,
-          data: { in0: "URL", in1: "Method", in2: "Data" },
+          data: { in0: "URL", in1: "GET", in2: "" },
           inputs: {
             in0: { connections: [{ node: 6, output: "out0", data: {} }] },
             in1: { connections: [] },
@@ -1085,7 +1082,12 @@ const graphModules = {
         },
         12: {
           id: 12,
-          data: { module: "join-strings" },
+          data: {
+            module: "join-strings",
+            in0: "in0",
+            in1: "in1",
+            joinString: "joinString",
+          },
           inputs: {
             in0: { connections: [] },
             in1: { connections: [] },
@@ -1096,7 +1098,10 @@ const graphModules = {
           name: "Module",
         },
       },
+      comments: [],
     },
+    key: "module-get-random-activity",
+    label: "module-get-random-activity",
   },
   "test-get-random-activity": {
     path: "/utils",
