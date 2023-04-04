@@ -3494,17 +3494,17 @@ const graphModules = {
           outputs: {
             out0: { connections: [{ node: 14, input: "in0", data: {} }] },
           },
-          position: [-346.887087040387, -794.7721587632118],
+          position: [-377.4187724837685, -913.5062897386891],
           name: "StringReplace",
         },
         9: {
           id: 9,
           data: { name: "text" },
           inputs: {
-            input: { connections: [{ node: 21, output: "out0", data: {} }] },
+            input: { connections: [{ node: 24, output: "out0", data: {} }] },
           },
           outputs: {},
-          position: [3864.8554589073838, 88.55403473791705],
+          position: [277.3750619731884, 411.3613180263995],
           name: "Output",
         },
         11: {
@@ -3512,12 +3512,7 @@ const graphModules = {
           data: { name: "prompt" },
           inputs: {},
           outputs: {
-            output: {
-              connections: [
-                { node: 16, input: "in0", data: {} },
-                { node: 22, input: "in1", data: {} },
-              ],
-            },
+            output: { connections: [{ node: 24, input: "in0", data: {} }] },
           },
           position: [-1090.2444055587657, -554.7747867958955],
           name: "Input",
@@ -3527,7 +3522,7 @@ const graphModules = {
           data: { name: "numTokens" },
           inputs: {},
           outputs: {
-            output: { connections: [{ node: 14, input: "in2", data: {} }] },
+            output: { connections: [{ node: 24, input: "in3", data: {} }] },
           },
           position: [-1091.521450008748, -384.3166531954625],
           name: "Input",
@@ -3537,32 +3532,37 @@ const graphModules = {
           data: { name: "topP" },
           inputs: {},
           outputs: {
-            output: { connections: [{ node: 15, input: "in2", data: {} }] },
+            output: {
+              connections: [
+                { node: 24, input: "in1", data: {} },
+                { node: 24, input: "in2", data: {} },
+              ],
+            },
           },
-          position: [-1089.7337067398516, -212.27454590864465],
+          position: [-1082.2358510874403, -184.78259724738732],
           name: "Input",
         },
         14: {
           id: 14,
-          data: { in0: "String", in1: "INPUT_NUM_TOKENS" },
+          data: { in0: "String", in1: "INPUT_NUM_TOKENS", in2: "Replace With" },
           inputs: {
             in0: { connections: [{ node: 8, output: "out0", data: {} }] },
             in1: { connections: [] },
-            in2: { connections: [{ node: 12, output: "output", data: {} }] },
+            in2: { connections: [] },
           },
           outputs: {
             out0: { connections: [{ node: 15, input: "in0", data: {} }] },
           },
-          position: [20.453230315438475, -528.641187578867],
+          position: [81.75688924200537, -589.9450263944519],
           name: "StringReplace",
         },
         15: {
           id: 15,
-          data: { in0: "String", in1: "INPUT_TOP_P" },
+          data: { in0: "String", in1: "INPUT_TOP_P", in2: "Replace With" },
           inputs: {
             in0: { connections: [{ node: 14, output: "out0", data: {} }] },
             in1: { connections: [] },
-            in2: { connections: [{ node: 13, output: "output", data: {} }] },
+            in2: { connections: [] },
           },
           outputs: {
             out0: { connections: [{ node: 17, input: "in0", data: {} }] },
@@ -3573,9 +3573,7 @@ const graphModules = {
         16: {
           id: 16,
           data: {},
-          inputs: {
-            in0: { connections: [{ node: 11, output: "output", data: {} }] },
-          },
+          inputs: { in0: { connections: [] } },
           outputs: {
             out0: { connections: [{ node: 8, input: "in2", data: {} }] },
           },
@@ -3611,17 +3609,17 @@ const graphModules = {
           data: { name: "terminator" },
           inputs: {},
           outputs: {
-            output: { connections: [{ node: 20, input: "in1", data: {} }] },
+            output: { connections: [{ node: 24, input: "in4", data: {} }] },
           },
           position: [-1089.1415528266632, 171.41806770488031],
           name: "Input",
         },
         20: {
           id: 20,
-          data: { in0: "String" },
+          data: { in0: "String", in1: "Split On" },
           inputs: {
             in0: { connections: [{ node: 23, output: "out0", data: {} }] },
-            in1: { connections: [{ node: 19, output: "output", data: {} }] },
+            in1: { connections: [] },
           },
           outputs: {
             out0: { connections: [{ node: 21, input: "in0", data: {} }] },
@@ -3636,18 +3634,16 @@ const graphModules = {
             in0: { connections: [{ node: 20, output: "out0", data: {} }] },
             in1: { connections: [] },
           },
-          outputs: {
-            out0: { connections: [{ node: 9, input: "input", data: {} }] },
-          },
+          outputs: { out0: { connections: [] } },
           position: [3575.698247360525, 90.82805025631227],
           name: "GetArrayElement",
         },
         22: {
           id: 22,
-          data: { in0: "String", in2: " " },
+          data: { in0: "String", in2: " ", in1: "Find" },
           inputs: {
             in0: { connections: [{ node: 6, output: "out0", data: {} }] },
-            in1: { connections: [{ node: 11, output: "output", data: {} }] },
+            in1: { connections: [] },
             in2: { connections: [] },
           },
           outputs: {
@@ -3668,7 +3664,30 @@ const graphModules = {
           position: [2299.3724581976007, -1193.1194642379228],
           name: "StringTrim",
         },
+        24: {
+          id: 24,
+          data: {
+            in0: "Prompt",
+            in1: "TopP",
+            in2: "Temperature",
+            in3: "Response Length",
+            in4: "Terminator",
+          },
+          inputs: {
+            in0: { connections: [{ node: 11, output: "output", data: {} }] },
+            in1: { connections: [{ node: 13, output: "output", data: {} }] },
+            in2: { connections: [{ node: 13, output: "output", data: {} }] },
+            in3: { connections: [{ node: 12, output: "output", data: {} }] },
+            in4: { connections: [{ node: 19, output: "output", data: {} }] },
+          },
+          outputs: {
+            out0: { connections: [{ node: 9, input: "input", data: {} }] },
+          },
+          position: [-106.59261912693884, 247.57445197887506],
+          name: "GPTQuery",
+        },
       },
+      comments: [],
     },
     key: "module-get-bloom-model-data",
     label: "module-get-bloom-model-data",
